@@ -52,7 +52,7 @@ The analytical data layer in Hive follows a **Star-Schema** model:
 ├── data-generator/            # Python scripts for synthetic data creation & chunking
 ├── docs/                       # Project task definitions & documentation
 ├── hive/                       # SQL DDL & analytical warehouse queries
-
+```
 🚀 Getting Started & Execution Flow
 1. Database Setup & Data Generation
 Execute the Python script to create schema tables and populate MariaDB:
