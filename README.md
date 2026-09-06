@@ -52,5 +52,28 @@ The analytical data layer in Hive follows a **Star-Schema** model:
 ├── data-generator/            # Python scripts for synthetic data creation & chunking
 ├── docs/                       # Project task definitions & documentation
 ├── hive/                       # SQL DDL & analytical warehouse queries
+
+🚀 Getting Started & Execution Flow
+1. Database Setup & Data Generation
+Execute the Python script to create schema tables and populate MariaDB:
+
+Bash
+python data-generator/data_generator.py
+2. Ingestion via Apache NiFi
+Import the NiFi flow template located in nifi/.
+
+Enable the JDBC Connection Controller and start processors (ListDatabaseTables ➔ GenerateTableFetch ➔ ExecuteSQLRecord ➔ PutHDFS).
+
+3. Transformation via PySpark
+Submit the PySpark job to read raw Avro files from HDFS staging and perform business logic:
+
+Bash
+spark-submit --master yarn pyspark/transformations.py
+4. Load & Query Data in Hive
+Run DDL scripts in hive/ to instantiate External Hive tables over processed HDFS directories:
+
+SQL
+SOURCE hive/schema_ddl.sql;
+SOURCE hive/analytics_queries.sql;
 ├── nifi/                       # Apache NiFi flow templates (.xml)
 └── pyspark/                    # PySpark cleaning & transformation scripts
