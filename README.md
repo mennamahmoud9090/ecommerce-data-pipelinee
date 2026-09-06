@@ -47,11 +47,13 @@ The analytical data layer in Hive follows a **Star-Schema** model:
 
 ```text
 .
-├── Architecture Diagram.jpg    # Pipeline Architecture Visual
-├── README.md                   # Project Documentation
-├── data-generator/            # Python scripts for synthetic data creation & chunking
-├── docs/                       # Project task definitions & documentation
-├── hive/                       # SQL DDL & analytical warehouse queries
+├── Architecture Diagram.jpg  # Pipeline Architecture Visual
+├── README.md                 # Project Documentation
+├── data-generator/          # Python scripts for synthetic data creation & chunking
+├── docs/                    # Project task definitions & documentation
+├── hive/                    # SQL DDL & analytical warehouse queries
+├── nifi/                    # Apache NiFi flow templates & configurations
+└── pyspark/                 # PySpark transformation scripts & logic
 ```
 ## 🚀 Getting Started & Execution Flow
 
